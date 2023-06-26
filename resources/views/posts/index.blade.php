@@ -5,26 +5,14 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <div class="m-3">
-                <a href="{{ route('posts.show', ['id' => 1]) }}"><h3>Postagem 1</h3></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quae reiciendis. Magni ipsum at dolorem.</p>
-            </div>
-            <div class="m-3">
-                <h3>Postagem 2</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quae reiciendis. Magni ipsum at dolorem.</p>
-            </div>
-            <div class="m-3">
-                <h3>Postagem 3</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quae reiciendis. Magni ipsum at dolorem.</p>
-            </div>
-            <div class="m-3">
-                <h3>Postagem 4</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quae reiciendis. Magni ipsum at dolorem.</p>
-            </div>
-            <div class="m-3">
-                <h3>Postagem 5</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quae reiciendis. Magni ipsum at dolorem.</p>
-            </div>
+            @foreach ($posts as $post)
+                <div class="m-3">
+                    <a href="{{ route('posts.show', ['post' => $post->id]) }}">
+                        <h3>{{$post->title}}</h3>
+                    </a>
+                    <p>{{ $post->description }}</p>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection
