@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Artigo X')
+@section('title', $post->title)
 
 @section('content')
     <div class="card">
